@@ -18,6 +18,7 @@ class keluarmasukbarang extends Model
         'keluarmasuk',
         'tanggal',
         'nominal',
+        'PIC',
         'keterangan',
         'item_id', // foreign key ke tabel items
     ];

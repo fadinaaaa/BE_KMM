@@ -45,6 +45,7 @@ class KeluarMasukBarangController extends Controller
             'keluarmasuk' => 'required|in:masuk,keluar',
             'tanggal'     => 'required|date',
             'nominal'     => 'required|integer|min:1',
+            'PIC'         => 'required|string',
             'keterangan'  => 'nullable|string',
         ]);
 
@@ -73,9 +74,10 @@ class KeluarMasukBarangController extends Controller
                 'item_id'      => $request->item_id,
                 'nama'         => $item->nama,
                 'satuan'       => $item->satuan,
-                'keluarmasuk' => $request->keluarmasuk,
+                'keluarmasuk'  => $request->keluarmasuk,
                 'tanggal'      => $request->tanggal,
                 'nominal'      => $request->nominal,
+                'PIC'          => $request->PIC,
                 'keterangan'   => $request->keterangan,
             ]);
 
@@ -104,6 +106,7 @@ class KeluarMasukBarangController extends Controller
             'keluarmasuk' => 'required|in:masuk,keluar',
             'tanggal'     => 'required|date',
             'nominal'     => 'required|integer|min:1',
+            'PIC'         => 'nullable|string',
             'keterangan'  => 'nullable|string',
         ]);
 
@@ -143,9 +146,10 @@ class KeluarMasukBarangController extends Controller
                 'item_id'      => $request->item_id,
                 'nama'         => $itemBaru->nama,
                 'satuan'       => $itemBaru->satuan,
-                'keluarmasuk' => $request->keluarmasuk,
+                'keluarmasuk'  => $request->keluarmasuk,
                 'tanggal'      => $request->tanggal,
                 'nominal'      => $request->nominal,
+                'PIC'          => $request->PIC,
                 'keterangan'   => $request->keterangan,
             ]);
 

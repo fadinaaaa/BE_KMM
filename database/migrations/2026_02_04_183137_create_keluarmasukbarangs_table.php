@@ -20,6 +20,7 @@ return new class extends Migration
             $table->enum('keluarmasuk', ['masuk', 'keluar']);
             $table->date('tanggal');
             $table->integer('nominal');
+            $table->string('PIC');
             $table->text('keterangan')->nullable();
 
             $table->timestamps();
