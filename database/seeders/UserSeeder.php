@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
         User::create([
             'username' => 'user1',
             'password' => Hash::make('password123'),
-            'role'     => 'user'
+            'role'     => 'user' //view, export, lihat detail
         ]);
     }
 }
