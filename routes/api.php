@@ -5,6 +5,9 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\SkyliftController;
 use App\Http\Controllers\KeluarMasukBarangController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PergantianAlatController;
+use App\Http\Controllers\PeminjamanBarangController;
+
 
 
 //Auth
@@ -42,3 +45,31 @@ Route::get('/keluar-masuk-barang/template', [KeluarMasukBarangController::class,
 Route::put('/keluar-masuk/{id}', [KeluarMasukBarangController::class, 'update']);
 Route::get('/keluar-masuk/{id}', [KeluarMasukBarangController::class, 'show']);
 Route::delete('/keluar-masuk/{id}', [KeluarMasukBarangController::class, 'destroy']);
+
+// =============================
+// Pergantian ROUTE
+// =============================
+
+Route::get('/pergantian-alat-export', [PergantianAlatController::class, 'export']);
+Route::get('/pergantian-alat', [PergantianAlatController::class, 'index']);
+Route::post('/pergantian-alat', [PergantianAlatController::class, 'store']);
+Route::get('/pergantian-alat/{id}', [PergantianAlatController::class, 'show']);
+// ✅ update: support 2 cara
+Route::put('/pergantian-alat/{id}', [PergantianAlatController::class, 'update']); 
+Route::post('/pergantian-alat/{id}', [PergantianAlatController::class, 'update']); // untuk multipart + _method
+
+Route::delete('/pergantian-alat/{id}', [PergantianAlatController::class, 'destroy']);
+
+// =============================
+// Peminjaman ROUTE
+// =============================
+
+Route::get('/peminjaman-barang-export', [PeminjamanBarangController::class, 'export']);
+Route::get('/peminjaman-barang', [PeminjamanBarangController::class, 'index']);
+Route::post('/peminjaman-barang', [PeminjamanBarangController::class, 'store']);
+Route::get('/peminjaman-barang/{id}', [PeminjamanBarangController::class, 'show']);
+Route::put('/peminjaman-barang/{id}', [PeminjamanBarangController::class, 'update']);
+Route::delete('/peminjaman-barang/{id}', [PeminjamanBarangController::class, 'destroy']);
+
+// ✅ kalau frontend kamu pakai POST + _method=PUT (multipart), Laravel tetap bisa.
+// Tapi route PUT di atas tetap diperlukan agar method spoofing diarahkan benar.
