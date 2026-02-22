@@ -122,7 +122,7 @@ class KeluarMasukBarangController extends Controller
             $itemLama = Item::findOrFail($logLama->item_id);
 
             // 1️⃣ Rollback saldo dari data lama
-            if ($logLama->keluar_masuk === 'masuk') {
+            if ($logLama->keluarmasuk === 'masuk') {
                 $itemLama->saldo -= $logLama->nominal;
             } else {
                 $itemLama->saldo += $logLama->nominal;

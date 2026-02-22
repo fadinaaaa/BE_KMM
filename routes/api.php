@@ -19,14 +19,10 @@ Route::middleware('auth:sanctum')->group(function () {
 // =============================
 Route::get('items-export', [ItemController::class, 'export']);
 Route::post('items-import', [ItemController::class, 'import']);
-Route::apiResource('items', ItemController::class);
+Route::get('/items', [ItemController::class, 'index']);
 Route::put('/items/{id}', [ItemController::class, 'update']);
 Route::delete('/items', [ItemController::class, 'destroy']);
 Route::get('/items/{id}', [ItemController::class, 'show']);
-
-
-
-
 
 // =============================
 // SKYLIFT ROUTE

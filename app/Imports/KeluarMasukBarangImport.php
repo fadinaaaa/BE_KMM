@@ -22,7 +22,7 @@ class KeluarMasukBarangImport implements ToModel, WithHeadingRow
         // UPDATE SALDO
         if (strtolower($row['keluarmasuk']) == 'masuk') {
             $item->saldo += $qty;
-        } elseif (strtolower($row['keluamasuk']) == 'keluar') {
+        } elseif (strtolower($row['keluarmasuk']) == 'keluar') {
             $item->saldo -= $qty;
         }
 
