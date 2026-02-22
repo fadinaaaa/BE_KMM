@@ -54,6 +54,7 @@ Route::delete('/keluar-masuk/{id}', [KeluarMasukBarangController::class, 'destro
 // Pergantian ROUTE
 // =============================
 
+Route::get('/pergantian-alat-export', [PergantianAlatController::class, 'export']);
 Route::get('/pergantian-alat', [PergantianAlatController::class, 'index']);
 Route::post('/pergantian-alat', [PergantianAlatController::class, 'store']);
 Route::get('/pergantian-alat/{id}', [PergantianAlatController::class, 'show']);
@@ -67,6 +68,7 @@ Route::delete('/pergantian-alat/{id}', [PergantianAlatController::class, 'destro
 // Peminjaman ROUTE
 // =============================
 
+Route::get('/peminjaman-barang-export', [PeminjamanBarangController::class, 'export']);
 Route::get('/peminjaman-barang', [PeminjamanBarangController::class, 'index']);
 Route::post('/peminjaman-barang', [PeminjamanBarangController::class, 'store']);
 Route::get('/peminjaman-barang/{id}', [PeminjamanBarangController::class, 'show']);

@@ -7,6 +7,8 @@ use App\Models\PeminjamanBarang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PeminjamanBarangExport;
 
 class PeminjamanBarangController extends Controller
 {
@@ -243,5 +245,13 @@ class PeminjamanBarangController extends Controller
         Storage::disk('public')->put($fileName, $data);
 
         return $fileName;
+    }
+
+    // =============================
+    // EXPORT EXCEL
+    // =============================
+    public function export()
+    {
+        return Excel::download(new PeminjamanBarangExport, 'peminjaman-barang.xlsx');
     }
 }

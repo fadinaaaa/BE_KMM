@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PergantianAlatExport;
 
 class PergantianAlatController extends Controller
 {
@@ -303,5 +305,13 @@ class PergantianAlatController extends Controller
                 'error' => $e->getMessage(),
             ], 500);
         }
+    }
+
+    // =============================
+    // EXPORT EXCEL
+    // =============================
+    public function export()
+    {
+        return Excel::download(new PergantianAlatExport, 'pergantian-alat.xlsx');
     }
 }
