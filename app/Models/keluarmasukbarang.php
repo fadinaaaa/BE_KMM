@@ -14,6 +14,7 @@ class keluarmasukbarang extends Model
 
      protected $fillable = [
         'nama',
+        'kode',
         'satuan',
         'keluarmasuk',
         'tanggal',

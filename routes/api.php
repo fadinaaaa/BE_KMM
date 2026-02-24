@@ -22,9 +22,10 @@ Route::middleware('auth:sanctum')->group(function () {
     // =============================
     // ITEM ROUTE
     // =============================
+    Route::get('/items', [ItemController::class, 'index']);
     Route::get('items-export', [ItemController::class, 'export']);
     Route::post('items-import', [ItemController::class, 'import']);
-    Route::get('/items', [ItemController::class, 'index']);
+    Route::post('/items', [ItemController::class, 'store']);
     Route::put('/items/{id}', [ItemController::class, 'update']);
     Route::delete('/items', [ItemController::class, 'destroy']);
     Route::get('/items/{id}', [ItemController::class, 'show']);

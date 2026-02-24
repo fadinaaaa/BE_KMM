@@ -39,6 +39,24 @@ class KeluarMasukBarangController extends Controller
         ]);
     }
 
+    private function generateKode($jenis)
+    {
+        $prefix = $jenis === 'keluar' ? 'K_' : 'M_';
+
+        $last = KeluarMasukBarang::where('keluarmasuk', $jenis)
+            ->orderBy('id', 'desc')
+            ->first();
+
+        if (!$last) {
+            return $prefix . '001';
+        }
+
+        $lastNumber = (int) str_replace($prefix, '', $last->kode);
+        $newNumber = $lastNumber + 1;
+
+        return $prefix . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+    }
+
     /**
      * Simpan data keluar / masuk barang
      */
@@ -73,9 +91,12 @@ class KeluarMasukBarangController extends Controller
 
             $item->save();
 
+            $kodeBaru = $this->generateKode($request->keluarmasuk);
+
             // Simpan log keluar masuk
             $log = KeluarMasukBarang::create([
                 'item_id'      => $request->item_id,
+                'kode'         => $kodeBaru,
                 'nama'         => $item->nama,
                 'satuan'       => $item->satuan,
                 'keluarmasuk'  => $request->keluarmasuk,
@@ -200,7 +221,7 @@ class KeluarMasukBarangController extends Controller
             $item = Item::findOrFail($log->item_id);
 
             // Rollback saldo
-            if ($log->keluar_masuk === 'masuk') {
+            if ($log->keluarmasuk === 'masuk') {
                 $item->saldo -= $log->nominal;
             } else {
                 $item->saldo += $log->nominal;

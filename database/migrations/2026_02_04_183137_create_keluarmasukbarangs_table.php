@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('item_id')->constrained('items')->onDelete('cascade');
 
             $table->string('nama');
+            $table->string('kode')->unique();
             $table->string('satuan');
             $table->enum('keluarmasuk', ['masuk', 'keluar']);
             $table->date('tanggal');
