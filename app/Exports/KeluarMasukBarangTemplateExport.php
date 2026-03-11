@@ -12,6 +12,7 @@ class KeluarMasukBarangTemplateExport implements FromArray, WithHeadings
         return [
             [
                 'nama' => '',
+                'kode' => '',
                 'satuan' => '',
                 'keluarmasuk' => '',
                 'tanggal' => '',
@@ -27,6 +28,7 @@ class KeluarMasukBarangTemplateExport implements FromArray, WithHeadings
     {
         return [
             'nama',
+            'kode',
             'satuan',
             'keluarmasuk',
             'tanggal',

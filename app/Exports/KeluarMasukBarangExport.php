@@ -14,6 +14,7 @@ class KeluarMasukBarangExport implements FromCollection, WithHeadings
             return [
                 'ID'          => $row->id,
                 'Nama'        => $row->nama,
+                'Kode'        => $row->kode,
                 'Satuan'      => $row->satuan,
                 'KeluarMasuk' => $row->keluarmasuk,
                 'Tanggal'     => $row->tanggal,
@@ -30,6 +31,7 @@ class KeluarMasukBarangExport implements FromCollection, WithHeadings
         return [
             'ID',
             'Nama',
+            'Kode',
             'Satuan',
             'Keluar/Masuk',
             'Tanggal',

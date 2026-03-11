@@ -30,6 +30,7 @@ class KeluarMasukBarangImport implements ToModel, WithHeadingRow
 
         return new keluarmasukbarang([
             'nama'        => $row['nama'],
+            'kode'        => $row['kode'],
             'satuan'      => $row['satuan'],
             'keluarmasuk' => $row['keluarmasuk'],
             'tanggal'     => $row['tanggal'],
